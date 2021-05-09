@@ -26,9 +26,9 @@
          });
        },
        "prefill": {
-         "name": "Nadeem Hassan",
-         "email": "nadeembhat24@gmail.com",
-         "contact": "+919797733149",
+         "name": "<%= current_order.billing_address.name %>",
+         "email": "<%= current_order.email %>",
+         "contact": "<%= current_order.billing_address.phone %>",
        },
        "notes": {
          "address": "<%= payment_method.preferences[:merchant_address] %>"
