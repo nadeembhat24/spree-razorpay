@@ -11,6 +11,7 @@
      var options = {
        "key": "<%= payment_method.preferences[:key_id] %>",
        "amount": "<%= current_order.amount_in_paise %>",
+	   "currency": "<%= current_order.currency %>",
        'name': "<%= payment_method.preferences[:merchant_name] %>",
        'description': "<%= payment_method.preferences[:merchant_description] %>",
        "handler": function (response){
@@ -26,9 +27,9 @@
          });
        },
        "prefill": {
-         "name": "<%= current_order.billing_address.name %>",
+         "name": "<%= current_order.billing_address.first_name + ' ' + current_order.billing_address.last_name %>",
          "email": "<%= current_order.email %>",
-         "contact": "<%= current_order.billing_address.phone %>",
+         "contact": "<%= current_order.shipping_address.phone %>",
        },
        "notes": {
          "address": "<%= payment_method.preferences[:merchant_address] %>"
